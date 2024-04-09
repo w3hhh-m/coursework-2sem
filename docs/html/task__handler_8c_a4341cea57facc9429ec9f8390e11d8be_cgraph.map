@@ -1,0 +1,15 @@
+<map id="task_switcher" name="task_switcher">
+<area shape="rect" id="node1" title="Handles task switching based on provided options." alt="" coords="5,128,117,154"/>
+<area shape="rect" id="node2" href="$task__handler_8c.html#a60e326633de7597f6de251833d489d7e" title="Replaces all pixels of the specified old color with the new color." alt="" coords="168,26,277,53"/>
+<area shape="rect" id="node5" href="$task__handler_8c.html#a30ea9eb68d00a2f7776471808190028e" title="Copies the specified area from the original image to a new structure, then copies it back to the orig..." alt="" coords="178,178,267,205"/>
+<area shape="rect" id="node7" href="$task__handler_8c.html#ac49a2b5090f3e5a87b40d45bd968c325" title="Finds all filled rectangles in the image and draws borders around them." alt="" coords="176,77,269,104"/>
+<area shape="rect" id="node9" href="$task__handler_8c.html#a4036aae53bb53c722b7a288b0a63d7ac" title="Draws an ornament pattern on the given image." alt="" coords="180,128,265,154"/>
+<area shape="rect" id="node13" href="$task__handler_8c.html#af4c732a598d00f62458fce659262b01f" title="Prints information about a PNG image." alt="" coords="165,229,280,256"/>
+<area shape="rect" id="node3" href="$drawing__handler_8c.html#a8ea4fa7547fe4a58da4df99aaf430c7c" title="Draws a single pixel with the specified color values." alt="" coords="745,153,837,180"/>
+<area shape="rect" id="node4" href="$preparation__handler_8c.html#ad9cc9d8449cd151d34b077c79f98a7de" title="Processes color provided as a string and returns it as an integer array." alt="" coords="350,26,461,53"/>
+<area shape="rect" id="node6" href="$preparation__handler_8c.html#aba7666b4a097db12f975e6e955e61f22" title="Processes coordinates provided as a string and returns them as an integer array." alt="" coords="328,280,483,306"/>
+<area shape="rect" id="node8" href="$drawing__handler_8c.html#ab00e9a7968a0cc509da7053cba9cbd76" title="Draws a border around the specified rectangle in the image." alt="" coords="563,128,665,154"/>
+<area shape="rect" id="node10" href="$drawing__handler_8c.html#ab0b50289af6a493dae78818783b1bc05" title="Draws a circle ornament on the image." alt="" coords="551,229,677,256"/>
+<area shape="rect" id="node11" href="$drawing__handler_8c.html#a82075957885db6d3ff359d07c7509a14" title="Draws rectangle ornaments on the image." alt="" coords="329,128,482,154"/>
+<area shape="rect" id="node12" href="$drawing__handler_8c.html#a9f70c4c4ca6fd269cc780f7d0074e350" title="Draws semicircle ornaments on the image." alt="" coords="531,178,697,205"/>
+</map>

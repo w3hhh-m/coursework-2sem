@@ -1,0 +1,5 @@
+<map id="color_replace" name="color_replace">
+<area shape="rect" id="node1" title="Replaces all pixels of the specified old color with the new color." alt="" coords="5,31,115,57"/>
+<area shape="rect" id="node2" href="$drawing__handler_8c.html#a8ea4fa7547fe4a58da4df99aaf430c7c" title="Draws a single pixel with the specified color values." alt="" coords="172,5,264,32"/>
+<area shape="rect" id="node3" href="$preparation__handler_8c.html#ad9cc9d8449cd151d34b077c79f98a7de" title="Processes color provided as a string and returns it as an integer array." alt="" coords="163,56,273,83"/>
+</map>

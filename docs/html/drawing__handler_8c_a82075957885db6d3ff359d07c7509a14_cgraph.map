@@ -1,0 +1,5 @@
+<map id="rectangle_ornament" name="rectangle_ornament">
+<area shape="rect" id="node1" title="Draws rectangle ornaments on the image." alt="" coords="5,5,159,32"/>
+<area shape="rect" id="node2" href="$drawing__handler_8c.html#ab00e9a7968a0cc509da7053cba9cbd76" title="Draws a border around the specified rectangle in the image." alt="" coords="207,5,309,32"/>
+<area shape="rect" id="node3" href="$drawing__handler_8c.html#a8ea4fa7547fe4a58da4df99aaf430c7c" title="Draws a single pixel with the specified color values." alt="" coords="357,5,449,32"/>
+</map>

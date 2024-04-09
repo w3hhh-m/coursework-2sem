@@ -1,0 +1,4 @@
+<map id="semicircles_ornament" name="semicircles_ornament">
+<area shape="rect" id="node1" title="Draws semicircle ornaments on the image." alt="" coords="5,5,172,32"/>
+<area shape="rect" id="node2" href="$drawing__handler_8c.html#a8ea4fa7547fe4a58da4df99aaf430c7c" title="Draws a single pixel with the specified color values." alt="" coords="220,5,312,32"/>
+</map>

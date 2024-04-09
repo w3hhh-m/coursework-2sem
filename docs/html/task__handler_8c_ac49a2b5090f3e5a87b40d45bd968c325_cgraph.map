@@ -1,0 +1,6 @@
+<map id="filled_rects" name="filled_rects">
+<area shape="rect" id="node1" title="Finds all filled rectangles in the image and draws borders around them." alt="" coords="5,31,99,57"/>
+<area shape="rect" id="node2" href="$drawing__handler_8c.html#ab00e9a7968a0cc509da7053cba9cbd76" title="Draws a border around the specified rectangle in the image." alt="" coords="151,5,253,32"/>
+<area shape="rect" id="node4" href="$preparation__handler_8c.html#ad9cc9d8449cd151d34b077c79f98a7de" title="Processes color provided as a string and returns it as an integer array." alt="" coords="147,56,257,83"/>
+<area shape="rect" id="node3" href="$drawing__handler_8c.html#a8ea4fa7547fe4a58da4df99aaf430c7c" title="Draws a single pixel with the specified color values." alt="" coords="305,5,397,32"/>
+</map>

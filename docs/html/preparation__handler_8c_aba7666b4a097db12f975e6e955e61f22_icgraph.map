@@ -1,0 +1,6 @@
+<map id="process_coordinates" name="process_coordinates">
+<area shape="rect" id="node1" title="Processes coordinates provided as a string and returns them as an integer array." alt="" coords="405,5,560,32"/>
+<area shape="rect" id="node2" href="$task__handler_8c.html#a30ea9eb68d00a2f7776471808190028e" title="Copies the specified area from the original image to a new structure, then copies it back to the orig..." alt="" coords="268,5,357,32"/>
+<area shape="rect" id="node3" href="$task__handler_8c.html#a4341cea57facc9429ec9f8390e11d8be" title="Handles task switching based on provided options." alt="" coords="108,5,220,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function to handle command&#45;line arguments and process image tasks." alt="" coords="5,5,60,32"/>
+</map>

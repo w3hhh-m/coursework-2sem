@@ -1,0 +1,4 @@
+<map id="copy_area" name="copy_area">
+<area shape="rect" id="node1" title="Copies the specified area from the original image to a new structure, then copies it back to the orig..." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node2" href="$preparation__handler_8c.html#aba7666b4a097db12f975e6e955e61f22" title="Processes coordinates provided as a string and returns them as an integer array." alt="" coords="143,5,297,32"/>
+</map>

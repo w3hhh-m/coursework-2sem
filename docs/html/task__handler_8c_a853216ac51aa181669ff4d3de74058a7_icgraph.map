@@ -1,0 +1,5 @@
+<map id="print_help" name="print_help">
+<area shape="rect" id="node1" title="Prints the help message explaining the usage of the program and its options." alt="" coords="299,5,385,32"/>
+<area shape="rect" id="node2" href="$preparation__handler_8c.html#aebddacf3d0c75ee8920b8d508f9fcdb4" title="Handles command&#45;line arguments passed to the program and populates the Options structure accordingly." alt="" coords="108,5,251,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function to handle command&#45;line arguments and process image tasks." alt="" coords="5,5,60,32"/>
+</map>

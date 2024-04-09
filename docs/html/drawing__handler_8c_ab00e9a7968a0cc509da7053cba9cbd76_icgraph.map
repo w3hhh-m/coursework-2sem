@@ -1,0 +1,8 @@
+<map id="draw_border" name="draw_border">
+<area shape="rect" id="node1" title="Draws a border around the specified rectangle in the image." alt="" coords="611,31,713,57"/>
+<area shape="rect" id="node2" href="$task__handler_8c.html#ac49a2b5090f3e5a87b40d45bd968c325" title="Finds all filled rectangles in the image and draws borders around them." alt="" coords="268,5,361,32"/>
+<area shape="rect" id="node5" href="$drawing__handler_8c.html#a82075957885db6d3ff359d07c7509a14" title="Draws rectangle ornaments on the image." alt="" coords="409,56,563,83"/>
+<area shape="rect" id="node3" href="$task__handler_8c.html#a4341cea57facc9429ec9f8390e11d8be" title="Handles task switching based on provided options." alt="" coords="108,31,220,57"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function to handle command&#45;line arguments and process image tasks." alt="" coords="5,31,60,57"/>
+<area shape="rect" id="node6" href="$task__handler_8c.html#a4036aae53bb53c722b7a288b0a63d7ac" title="Draws an ornament pattern on the given image." alt="" coords="272,56,357,83"/>
+</map>

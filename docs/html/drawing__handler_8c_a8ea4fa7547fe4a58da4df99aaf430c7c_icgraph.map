@@ -1,0 +1,12 @@
+<map id="draw_pixel" name="draw_pixel">
+<area shape="rect" id="node1" title="Draws a single pixel with the specified color values." alt="" coords="841,132,933,159"/>
+<area shape="rect" id="node2" href="$drawing__handler_8c.html#ab0b50289af6a493dae78818783b1bc05" title="Draws a circle ornament on the image." alt="" coords="439,157,565,184"/>
+<area shape="rect" id="node6" href="$task__handler_8c.html#a60e326633de7597f6de251833d489d7e" title="Replaces all pixels of the specified old color with the new color." alt="" coords="268,5,377,32"/>
+<area shape="rect" id="node7" href="$drawing__handler_8c.html#ab00e9a7968a0cc509da7053cba9cbd76" title="Draws a border around the specified rectangle in the image." alt="" coords="659,107,761,133"/>
+<area shape="rect" id="node10" href="$drawing__handler_8c.html#a9f70c4c4ca6fd269cc780f7d0074e350" title="Draws semicircle ornaments on the image." alt="" coords="627,208,793,235"/>
+<area shape="rect" id="node3" href="$task__handler_8c.html#a4036aae53bb53c722b7a288b0a63d7ac" title="Draws an ornament pattern on the given image." alt="" coords="280,132,365,159"/>
+<area shape="rect" id="node4" href="$task__handler_8c.html#a4341cea57facc9429ec9f8390e11d8be" title="Handles task switching based on provided options." alt="" coords="108,56,220,83"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function to handle command&#45;line arguments and process image tasks." alt="" coords="5,56,60,83"/>
+<area shape="rect" id="node8" href="$task__handler_8c.html#ac49a2b5090f3e5a87b40d45bd968c325" title="Finds all filled rectangles in the image and draws borders around them." alt="" coords="276,56,369,83"/>
+<area shape="rect" id="node9" href="$drawing__handler_8c.html#a82075957885db6d3ff359d07c7509a14" title="Draws rectangle ornaments on the image." alt="" coords="425,107,579,133"/>
+</map>

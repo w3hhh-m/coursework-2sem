@@ -1,0 +1,4 @@
+<map id="read_png_file" name="read_png_file">
+<area shape="rect" id="node1" title="Reads a PNG file and stores its information and pixel data in a Png structure." alt="" coords="108,5,217,32"/>
+<area shape="rect" id="node2" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function to handle command&#45;line arguments and process image tasks." alt="" coords="5,5,60,32"/>
+</map>

@@ -1,0 +1,24 @@
+PROJECT_NAME           = "Course work v5.16"
+PROJECT_BRIEF          = "Course work for option 5.16, created by Matvei Kolesnichenko."
+OUTPUT_DIRECTORY       = docs
+INPUT                  = src include/structures.h README.md
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+GENERATE_TREEVIEW      = YES
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+ALPHABETICAL_INDEX     = NO
+DOT_IMAGE_FORMAT       = svg
+USE_MDFILE_AS_MAINPAGE = README.md
+HTML_EXTRA_STYLESHEET  = docs/doxygen-awesome-css/doxygen-awesome.css \
+                        docs/doxygen-awesome-css/doxygen-awesome-sidebar-only.css \
+                        docs/doxygen-awesome-css/doxygen-awesome-sidebar-only-darkmode-toggle.css
+HTML_COLORSTYLE        = LIGHT
+HTML_HEADER            = docs/doxygen-awesome-css/header.html
+HTML_EXTRA_FILES       = docs/doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js
+GENERATE_LATEX_SOURCE = YES
+LATEX_OUTPUT = latex
+LATEX_CMD_NAME = xelatex
+PDF_HYPERLINKS = YES
+LATEX_HIDE_INDICES = NO

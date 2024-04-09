@@ -1,0 +1,4 @@
+<map id="handle_arguments" name="handle_arguments">
+<area shape="rect" id="node1" title="Handles command&#45;line arguments passed to the program and populates the Options structure accordingly." alt="" coords="5,5,148,32"/>
+<area shape="rect" id="node2" href="$task__handler_8c.html#a853216ac51aa181669ff4d3de74058a7" title="Prints the help message explaining the usage of the program and its options." alt="" coords="196,5,283,32"/>
+</map>

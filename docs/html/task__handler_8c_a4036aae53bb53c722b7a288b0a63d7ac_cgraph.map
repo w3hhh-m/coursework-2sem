@@ -1,0 +1,9 @@
+<map id="ornament" name="ornament">
+<area shape="rect" id="node1" title="Draws an ornament pattern on the given image." alt="" coords="5,58,91,84"/>
+<area shape="rect" id="node2" href="$drawing__handler_8c.html#ab0b50289af6a493dae78818783b1bc05" title="Draws a circle ornament on the image." alt="" coords="360,7,487,34"/>
+<area shape="rect" id="node4" href="$preparation__handler_8c.html#ad9cc9d8449cd151d34b077c79f98a7de" title="Processes color provided as a string and returns it as an integer array." alt="" coords="160,32,271,59"/>
+<area shape="rect" id="node5" href="$drawing__handler_8c.html#a82075957885db6d3ff359d07c7509a14" title="Draws rectangle ornaments on the image." alt="" coords="139,83,292,110"/>
+<area shape="rect" id="node7" href="$drawing__handler_8c.html#a9f70c4c4ca6fd269cc780f7d0074e350" title="Draws semicircle ornaments on the image." alt="" coords="340,134,507,160"/>
+<area shape="rect" id="node3" href="$drawing__handler_8c.html#a8ea4fa7547fe4a58da4df99aaf430c7c" title="Draws a single pixel with the specified color values." alt="" coords="555,83,647,110"/>
+<area shape="rect" id="node6" href="$drawing__handler_8c.html#ab00e9a7968a0cc509da7053cba9cbd76" title="Draws a border around the specified rectangle in the image." alt="" coords="372,83,475,110"/>
+</map>

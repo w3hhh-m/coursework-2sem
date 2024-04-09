@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['flag_5fborder_5fcolor_101',['flag_border_color',['../structOptions.html#a8cd38fc2e65c68454e51b8e9fb296183',1,'Options']]],
+  ['flag_5fcolor_102',['flag_color',['../structOptions.html#a6ab1840014f1b64566b9f426e45b7944',1,'Options']]],
+  ['flag_5fcolor_5freplace_103',['flag_color_replace',['../structOptions.html#a4e625c2522ed698dd270459e3d6b3ead',1,'Options']]],
+  ['flag_5fcopy_104',['flag_copy',['../structOptions.html#a67b6d0cd59601ca2e4d6e34d26e48854',1,'Options']]],
+  ['flag_5fcount_105',['flag_count',['../structOptions.html#a850340c6b4eb1af6eab200b1bcfde33c',1,'Options']]],
+  ['flag_5fdest_5fleft_5fup_106',['flag_dest_left_up',['../structOptions.html#a929527f8243c8598bf660c8bb865119e',1,'Options']]],
+  ['flag_5ffilled_5frects_107',['flag_filled_rects',['../structOptions.html#a1f04b29087da57c9c87c70c4ad56aa50',1,'Options']]],
+  ['flag_5fhelp_108',['flag_help',['../structOptions.html#a19e965fb82551c20260def3c2d5ba020',1,'Options']]],
+  ['flag_5finfo_109',['flag_info',['../structOptions.html#a37b2f8dae260f9761df4734d08f0c255',1,'Options']]],
+  ['flag_5finput_110',['flag_input',['../structOptions.html#a892070dfee2a868480aaab3b2e7d0e96',1,'Options']]],
+  ['flag_5fleft_5fup_111',['flag_left_up',['../structOptions.html#a4849ffd2b3caf6deaab29361df768fb6',1,'Options']]],
+  ['flag_5fnew_5fcolor_112',['flag_new_color',['../structOptions.html#a72507aff353dbf6f8cb7c162054fd990',1,'Options']]],
+  ['flag_5fold_5fcolor_113',['flag_old_color',['../structOptions.html#aa46abb97dde0ea79dc4036585897e5c3',1,'Options']]],
+  ['flag_5fornament_114',['flag_ornament',['../structOptions.html#a791832f250335be4eb188fb42203ffcb',1,'Options']]],
+  ['flag_5foutput_115',['flag_output',['../structOptions.html#a4c6a05dd6f68ab8f31cc78193a52b6e3',1,'Options']]],
+  ['flag_5fpattern_116',['flag_pattern',['../structOptions.html#ad8a523147f510fb2756a3b2d4ee04e24',1,'Options']]],
+  ['flag_5fright_5fdown_117',['flag_right_down',['../structOptions.html#a503d5aba1ed00ce411532a0fbb61e676',1,'Options']]],
+  ['flag_5fthickness_118',['flag_thickness',['../structOptions.html#a381da9406d26a25a037d268651611ed0',1,'Options']]]
+];
