@@ -1,129 +1,13 @@
-#include "structures_and_errors.h"
-
-/*
-Prints the help message explaining the usage of the program and its options.
-
-This function does not return a value.
-
-The help message includes:
-- Information about the course work and its creator.
-- Usage syntax.
-- Description of available options, including short and long forms, along with their corresponding explanations.
-*/
-void print_help() {
-    printf("Course work for option 5.16, created by Matvei Kolesnichenko.\n");
-    printf("Usage: ./program [OPTIONS] [input_file]\n\n");
-    printf("Options:\n");
-    printf("  -h, --help                Display this help message\n");
-    printf("  --info                    Print detailed information about the input PNG file\n");
-    printf("  -i, --input <filename>    Specify the input PNG file\n");
-    printf("  -o, --output <filename>   Specify the output PNG file (default: out.png)\n\n");
-    printf("  --copy                    Copy a specified region of the image\n");
-    printf("  --left_up <x.y>           Specify the coordinates of the top left corner of the source area\n");
-    printf("  --right_down <x.y>        Specify the coordinates of the bottom right corner of the source area\n");
-    printf("  --dest_left_up <x.y>      Specify the coordinates of the top left corner of the destination area\n\n");
-    printf("  --color_replace           Replace all pixels of a specified color with another color\n");
-    printf("  --old_color <r.g.b>       Specify the color to be replaced\n");
-    printf("  --new_color <r.g.b>       Specify the color to replace with\n\n");
-    printf("  --ornament                Create a patterned frame\n");
-    printf("  --pattern <rectangle|circle|semicircles>\n");
-    printf("                            Specify the pattern of the frame\n");
-    printf("  --color <r.g.b>           Specify the color of the frame\n");
-    printf("  --thickness <value>       Specify the thickness of the frame\n");
-    printf("  --count <value>           Specify the number of repetitions of the pattern\n\n");
-    printf("  --filled_rects            Find all filled rectangles of a specified color and draw an outline\n");
-    printf("  --color <r.g.b>           Specify the color of the frame\n");
-    printf("  --border_color <r.g.b>    Specify the color of the outline\n");
-    printf("  --thickness <value>       Specify the thickness of the outline\n");
-}
-
-/*
-Processes color provided as a string and returns it as an integer array.
-
-Parameters:
-- string_color: A string representing color in the format "R.G.B".
-
-Returns:
-- An integer array containing the red, green, and blue components of the color.
-- NULL if the input string is invalid or if memory allocation fails.
-*/
-int* process_color(char* string_color) {
-    /* Takes color as "255.0.0" and returns as {255, 0, 0} */
-    int index = 0;
-
-    /* If color starts or ends with '.' */
-    if (string_color[strlen(string_color)-1] == '.' || string_color[0] == '.'){
-        return NULL;
-    }
-
-    char *token = strtok(string_color, ".");
-    int *arr = malloc(sizeof(int)*3);
-    if (arr == NULL) {
-        printf("Error: Can not allocate memory for array of colors\n");
-        exit(ERR_MEMORY_ALLOCATION_FAILURE);
-    }
-    while (token != NULL && index < 3) {
-        arr[index++] = atoi(token);
-        token = strtok(NULL, ".");
-    }
-
-    /* If there are less than 3 numbers or one of them are invalid */
-    if (token != NULL || index != 3 || arr[0] > 255 || arr[0] < 0 || arr[1] > 255 || arr[1] < 0 || arr[2] > 255 || arr[2] < 0){
-        return NULL;
-    }
-
-    return arr;
-}
-
-/*
-Processes coordinates provided as a string and returns them as an integer array.
-
-Parameters:
-- string_coordinates: A string representing coordinates in the format "X.Y".
-
-Returns:
-- An integer array containing the X and Y coordinates.
-- NULL if the input string is invalid or if memory allocation fails.
-*/
-int* process_coordinates(char* string_coordinates){
-    /* Takes coordinates as "100.200" and returns as {100, 200} */
-    int index = 0;
-
-    /* If coordinates starts or ends with '.' */
-    if (string_coordinates[strlen(string_coordinates)-1] == '.' || string_coordinates[0] == '.'){
-        return NULL;
-    }
-
-    char *token = strtok(string_coordinates, ".");
-    int *arr = malloc(sizeof(int)*2);
-    if (arr == NULL) {
-        printf("Error: Can not allocate memory for array of coordinates\n");
-        exit(ERR_MEMORY_ALLOCATION_FAILURE);
-    }
-    while (token != NULL && index < 2) {
-        arr[index++] = atoi(token);
-        token = strtok(NULL, ".");
-    }
-
-    /* If there are less than 2 numbers */
-    if (token != NULL || index != 2){
-        return NULL;
-    }
-
-    return arr;
-}
-
-/*
-Handles command-line arguments passed to the program and populates the Options structure accordingly.
-
-Parameters:
-- argc: An integer representing the number of command-line arguments.
-- argv: An array of strings containing the command-line arguments.
-- options: A pointer to the Options structure where the parsed arguments will be stored.
-
-Returns:
-This function does not return a value.
-*/
+#include "errors.h"
+#include "structures.h"
+#include "task_handler.h"
+/**
+ * @brief Handles command-line arguments passed to the program and populates the Options structure accordingly.
+ * 
+ * @param argc An integer representing the number of command-line arguments.
+ * @param argv An array of strings containing the command-line arguments.
+ * @param options A pointer to the Options structure where the parsed arguments will be stored.
+ */
 void handle_arguments(int argc, char *argv[], Options *options) {
     opterr = 0;
 
@@ -368,86 +252,72 @@ void handle_arguments(int argc, char *argv[], Options *options) {
     }
 }
 
-/*
-Draws a border around the specified rectangle in the image.
+/**
+ * @brief Processes color provided as a string and returns it as an integer array.
+ * 
+ * @param string_color A string representing color in the format "R.G.B".
+ * @return int* An integer array containing the red, green, and blue components of the color.
+ *              NULL if the input string is invalid or if memory allocation fails.
+ */
+int* process_color(char* string_color) {
+    /* Takes color as "255.0.0" and returns as {255, 0, 0} */
+    int index = 0;
 
-Parameters:
-- image: A pointer to the Png structure representing the image.
-- x1: The x-coordinate of the top-left corner of the rectangle.
-- y1: The y-coordinate of the top-left corner of the rectangle.
-- x2: The x-coordinate of the bottom-right corner of the rectangle.
-- y2: The y-coordinate of the bottom-right corner of the rectangle.
-- border_color: An array containing the RGB values of the border color.
-- thickness: A string representing the thickness of the border.
-
-Returns:
-This function does not return a value.
-*/
-void draw_border(Png *image, int x1, int y1, int x2, int y2, int* border_color, char* thickness) {
-    /* Convert thickness string to integer */
-    int border_thickness = atoi(thickness);
-    if (border_thickness <= 0) {
-        printf("Error: Border thickness is not a positive integer\n");
-        exit(ERR_INSUFFICIENT_ARGUMENTS);
+    /* If color starts or ends with '.' */
+    if (string_color[strlen(string_color)-1] == '.' || string_color[0] == '.'){
+        return NULL;
     }
 
-    /* Draw horizontal lines */
-    for (int t = 1; t <= border_thickness; t++) {
-        /* Draw upper horizontal line */
-        int y = y1 - t;
-        if (y >= 0 && y < image->height) {
-            png_bytep row = image->row_pointers[y];
-            for (int x = x1 - t; x <= x2 + t; x++) {
-                if (x >= 0 && x < image->width) {
-                    png_bytep px = &(row[x * 3]);
-                    px[0] = border_color[0];
-                    px[1] = border_color[1];
-                    px[2] = border_color[2];
-                }
-            }
-        }
-
-        /* Draw lower horizontal line */
-        y = y2 + t;
-        if (y >= 0 && y < image->height) {
-            png_bytep row = image->row_pointers[y];
-            for (int x = x1 - t; x <= x2 + t; x++) {
-                if (x >= 0 && x < image->width) {
-                    png_bytep px = &(row[x * 3]);
-                    px[0] = border_color[0];
-                    px[1] = border_color[1];
-                    px[2] = border_color[2];
-                }
-            }
-        }
+    char *token = strtok(string_color, ".");
+    int *arr = malloc(sizeof(int)*3);
+    if (arr == NULL) {
+        printf("Error: Can not allocate memory for array of colors\n");
+        exit(ERR_MEMORY_ALLOCATION_FAILURE);
+    }
+    while (token != NULL && index < 3) {
+        arr[index++] = atoi(token);
+        token = strtok(NULL, ".");
     }
 
-    /* Draw vertical lines */
-    for (int t = 1; t <= border_thickness; t++) {
-        /* Draw left vertical line */
-        int x = x1 - t;
-        if (x >= 0 && x < image->width) {
-            for (int y = y1 - t; y <= y2 + t; y++) {
-                if (y >= 0 && y < image->height) {
-                    png_bytep px = &(image->row_pointers[y][(x * 3)]);
-                    px[0] = border_color[0];
-                    px[1] = border_color[1];
-                    px[2] = border_color[2];
-                }
-            }
-        }
-
-        /* Draw right vertical line */
-        x = x2 + t;
-        if (x >= 0 && x < image->width) {
-            for (int y = y1 - t; y <= y2 + t; y++) {
-                if (y >= 0 && y < image->height) {
-                    png_bytep px = &(image->row_pointers[y][(x * 3)]);
-                    px[0] = border_color[0];
-                    px[1] = border_color[1];
-                    px[2] = border_color[2];
-                }
-            }
-        }
+    /* If there are less than 3 numbers or one of them are invalid */
+    if (token != NULL || index != 3 || arr[0] > 255 || arr[0] < 0 || arr[1] > 255 || arr[1] < 0 || arr[2] > 255 || arr[2] < 0){
+        return NULL;
     }
+
+    return arr;
+}
+
+/**
+ * @brief Processes coordinates provided as a string and returns them as an integer array.
+ * 
+ * @param string_coordinates A string representing coordinates in the format "X.Y".
+ * @return int* An integer array containing the X and Y coordinates.
+ *              NULL if the input string is invalid or if memory allocation fails.
+ */
+int* process_coordinates(char* string_coordinates){
+    /* Takes coordinates as "100.200" and returns as {100, 200} */
+    int index = 0;
+
+    /* If coordinates starts or ends with '.' */
+    if (string_coordinates[strlen(string_coordinates)-1] == '.' || string_coordinates[0] == '.'){
+        return NULL;
+    }
+
+    char *token = strtok(string_coordinates, ".");
+    int *arr = malloc(sizeof(int)*2);
+    if (arr == NULL) {
+        printf("Error: Can not allocate memory for array of coordinates\n");
+        exit(ERR_MEMORY_ALLOCATION_FAILURE);
+    }
+    while (token != NULL && index < 2) {
+        arr[index++] = atoi(token);
+        token = strtok(NULL, ".");
+    }
+
+    /* If there are less than 2 numbers */
+    if (token != NULL || index != 2){
+        return NULL;
+    }
+
+    return arr;
 }

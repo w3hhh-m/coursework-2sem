@@ -1,19 +1,16 @@
-#include "structures_and_errors.h"
+#include "errors.h"
+#include "structures.h"
 
-/*
-Reads a PNG file and stores its information and pixel data in a Png structure.
-
-Parameters:
-- file_name: A string representing the file name/path of the PNG image to be read.
-- image: A pointer to the Png structure where the image data and information will be stored.
-
-Returns:
-This function does not return a value.
-*/
+/**
+ * @brief Reads a PNG file and stores its information and pixel data in a Png structure.
+ * 
+ * @param file_name A string representing the file name/path of the PNG image to be read.
+ * @param image A pointer to the Png structure where the image data and information will be stored.
+ */
 void read_png_file(char *file_name, Png *image) {
-    int x, y;
+    int y;
     char header[8];
-    
+
     /* Open file */
     FILE *fp = fopen(file_name, "rb");
     if (!fp) {
@@ -23,7 +20,7 @@ void read_png_file(char *file_name, Png *image) {
 
     /* Read first 8 bytes to verify PNG file */
     fread(header, 1, 8, fp);
-    if (png_sig_cmp(header, 0, 8)) {
+    if (png_sig_cmp((const unsigned char *)header, 0, 8)) {
         printf("Error: %s probably is not a PNG file\n", file_name);
         fclose(fp);
         exit(ERR_FILE_READ_ERROR);
@@ -83,26 +80,21 @@ void read_png_file(char *file_name, Png *image) {
             exit(ERR_MEMORY_ALLOCATION_FAILURE);
         }
     }
-    
+
     /* Read image rows */
     png_read_image(image->png_ptr, image->row_pointers);
-    
+
     /* Close file */
     fclose(fp);
 }
 
-/*
-Writes a PNG image to a file.
-
-Parameters:
-- file_name: A string representing the file name/path where the PNG image will be saved.
-- image: A pointer to the Png structure containing information about the PNG image.
-
-Returns:
-This function does not return a value.
-*/
+/**
+ * @brief Writes a PNG image to a file.
+ * 
+ * @param file_name A string representing the file name/path where the PNG image will be saved.
+ * @param image A pointer to the Png structure containing information about the PNG image.
+ */
 void write_png_file(char *file_name, Png *image) {
-    int x, y;
 
     /* Open file */
     FILE *fp = fopen(file_name, "wb");
@@ -143,7 +135,7 @@ void write_png_file(char *file_name, Png *image) {
 
     /* Write image data */
     png_write_image(png_ptr, image->row_pointers);
-    
+
     /* Handle errors */
     if (setjmp(png_jmpbuf(png_ptr))) {
         printf("Error: Unknown\n");
@@ -154,53 +146,8 @@ void write_png_file(char *file_name, Png *image) {
 
     /* Finalize writing */
     png_write_end(png_ptr, NULL);
-    
+
     /* Clean up */
     fclose(fp);
     png_destroy_write_struct(&png_ptr, &info_ptr);
-}
-
-/*
-Prints information about a PNG image.
-
-Parameters:
-- image: A pointer to the Png structure containing information about the PNG image.
-
-Returns:
-This function does not return a value.
-
-Notes:
-- This function prints various details about the PNG image, including its width, height, color type, bit depth, and number of passes.
-- The color type is printed as a string representation.
-- Bit depth indicates the number of bits per sample or per channel in the image.
-- Number of passes refers to the number of passes required for interlaced PNG images.
-*/
-void print_png_info(Png *image) {
-    printf("Image Width: %d\n", image->width);
-    printf("Image Height: %d\n", image->height);
-    
-    printf("Color Type: ");
-    switch (image->color_type) {
-        case PNG_COLOR_TYPE_GRAY:
-            printf("Grayscale\n");
-            break;
-        case PNG_COLOR_TYPE_RGB:
-            printf("RGB\n");
-            break;
-        case PNG_COLOR_TYPE_PALETTE:
-            printf("Palette\n");
-            break;
-        case PNG_COLOR_TYPE_GRAY_ALPHA:
-            printf("Grayscale with Alpha\n");
-            break;
-        case PNG_COLOR_TYPE_RGBA:
-            printf("RGB with Alpha\n");
-            break;
-        default:
-            printf("Unknown\n");
-            break;
-    }
-    
-    printf("Bit Depth: %d\n", image->bit_depth);
-    printf("Number of passes: %d\n", image->number_of_passes);
 }
