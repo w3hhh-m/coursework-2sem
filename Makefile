@@ -7,8 +7,7 @@ INCDIR = include
 BUILDDIR = build
 DOCSDIR = docs
 LATEXDIR = $(DOCSDIR)/latex
-AWESOME_CSS_DIR = $(DOCSDIR)/doxygen-awesome-css
-AWESOME_FILES = doxygen-awesome.css doxygen-awesome-sidebar-only.css doxygen-awesome-sidebar-only-darkmode-toggle.css doxygen-awesome-darkmode-toggle.js header.html
+HTMLDIR = $(DOCSDIR)/html
 
 SOURCES = $(wildcard $(SRCDIR)/*.c)
 OBJECTS = $(patsubst $(SRCDIR)/%.c,$(BUILDDIR)/%.o,$(SOURCES))
@@ -25,18 +24,16 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(BUILDDIR)
 	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
 
-$(AWESOME_CSS_DIR)/%:
-	mkdir -p $(AWESOME_CSS_DIR)
-	wget -O $@ https://raw.githubusercontent.com/w3hhh-m/COURSEWORK-2SEM-ADDONS/main/$(notdir $@)
+addons:
+	mkdir -p $(DOCSDIR)/doxygen-awesome-css
+	git clone https://github.com/w3hhh-m/COURSEWORK-2SEM-ADDONS $(DOCSDIR)/doxygen-awesome-css
+	mv $(DOCSDIR)/doxygen-awesome-css/Doxyfile .
 
-Doxyfile:
-	wget -O $@ https://raw.githubusercontent.com/w3hhh-m/COURSEWORK-2SEM-ADDONS/main/Doxyfile
-
-docs: Doxyfile $(AWESOME_FILES:%=$(AWESOME_CSS_DIR)/%)
-	doxygen $<
+docs: addons
+	doxygen Doxyfile
 	cd $(LATEXDIR) && \
 	rm -f refman.tex && \
-	wget -O refman.tex https://raw.githubusercontent.com/w3hhh-m/COURSEWORK-2SEM-ADDONS/main/refman.tex && \
+	cp ../doxygen-awesome-css/refman.tex . && \
 	make && \
 	mv refman.pdf ../docs.pdf && \
 	cd .. && \
