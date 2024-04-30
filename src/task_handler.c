@@ -148,12 +148,8 @@ void copy_area(Png *image, char* left_up, char* right_down, char* dest_left_up) 
         printf("Error: Can not allocate memory for copied area\n");
         exit(ERR_MEMORY_ALLOCATION_FAILURE);
     }
-    copied_area->height = right_down_coordinates[1] - left_up_coordinates[1] + 1;
-    copied_area->width = right_down_coordinates[0] - left_up_coordinates[0] + 1;
-    if (copied_area->height <= 0 || copied_area->width <= 0) {
-        printf("Error: Inappropriate area coordinates\n");
-        exit(ERR_INSUFFICIENT_ARGUMENTS);
-    }
+    copied_area->height = abs(right_down_coordinates[1] - left_up_coordinates[1] + 1);
+    copied_area->width = abs(right_down_coordinates[0] - left_up_coordinates[0] + 1);
     copied_area->row_pointers = malloc(sizeof(png_bytep) * copied_area->height);
     if (copied_area->row_pointers == NULL) {
         printf("Error: Can not allocate memory for copied area row_pointers\n");
@@ -169,6 +165,17 @@ void copy_area(Png *image, char* left_up, char* right_down, char* dest_left_up) 
         }
     }
 
+    /* Switching left and right if needed */
+    if (left_up_coordinates[0] > right_down_coordinates[0]){
+        int tmp[2];
+        tmp[0] = right_down_coordinates[0];
+        tmp[1] = right_down_coordinates[1];
+        right_down_coordinates[0] = left_up_coordinates[0];
+        right_down_coordinates[1] = left_up_coordinates[1];
+        left_up_coordinates[0] = tmp[0];
+        left_up_coordinates[1] = tmp[1];
+    }
+    
     /* Copying area from original image to structure */
     for (y = left_up_coordinates[1]; y <= right_down_coordinates[1]; y++) {
         for (x = left_up_coordinates[0]; x <= right_down_coordinates[0]; x++) {
