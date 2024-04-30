@@ -149,9 +149,9 @@ void circle_ornament(Png *image, int* color_values) {
 void semicircles_ornament(Png *image, int ornament_thickness, int ornament_count, int* color_values) {
     int radiusX = ceil((double)(image->width - ornament_count * ornament_thickness) / (2 * ornament_count));
     int radiusY = ceil((double)(image->height - ornament_count * ornament_thickness) / (2 * ornament_count));
-    int centerX = radiusX + ornament_thickness;
+    int centerX = radiusX + ceil(ornament_thickness/2);
     for (int i = 0; i < ornament_count; i++){
-        for (int x = centerX - radiusX - ornament_thickness; x < centerX + radiusX + ornament_thickness && x < image->width && x >= 0; x++){
+        for (int x = centerX - radiusX - ceil(ornament_thickness/2); x < centerX + radiusX + ornament_thickness && x < image->width && x >= 0; x++){
             /* Draw upper semicircles */
             for (int y = 0; y < radiusX + ornament_thickness && y < image->height && y >= 0; y++){
                 int centerY = 0;
@@ -176,9 +176,9 @@ void semicircles_ornament(Png *image, int ornament_thickness, int ornament_count
         centerX += 2 * radiusX + ornament_thickness;
     }
 
-    int centerY = radiusY + ornament_thickness;
+    int centerY = radiusY + ceil(ornament_thickness/2);
     for (int i = 0; i < ornament_count; i++){
-        for (int y = centerY - radiusY - ornament_thickness; y < centerY + radiusY + ornament_thickness && y < image->height && y >= 0; y++){
+        for (int y = centerY - radiusY - ceil(ornament_thickness/2); y < centerY + radiusY + ornament_thickness && y < image->height && y >= 0; y++){
             /* Draw left semicircles */
             for (int x = 0; x < radiusY + ornament_thickness && x < image->width && x >= 0; x++){
                 int centerX = 0;
